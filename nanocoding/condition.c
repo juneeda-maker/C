@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 int main(void)
@@ -105,7 +106,7 @@ int main(void)
     */
 
 
-   int age = 1;
+  /* int age = 1;
     switch (age)
     {
     case 8:
@@ -122,5 +123,44 @@ int main(void)
     case 19:printf("고등학생입니다\n"); break;
     default: printf("학생이 아닌가봐요\n");break;
     }
+     return 0;
+    */
+
+   //Up and Down
+   srand(time(NULL));
+  // int num = rand() % 100; // 0 ~ 99
+    int num = rand() % 100 + 1; //1~100 사이의 숫자
+    printf("숫자 : %d\n ", num);
+    int answer = 0; //정답
+    int chance = 5; //기회
+    while (chance > 0) // 1 : 참 0 : 거짓 고로, while (1) 이렇게도 작성 가능함
+    {
+        printf("남은 기회 %d 번 \n", chance--);
+        printf("숫자를 맞혀보세요 (1 ~ 100): ");
+        scanf("%d", &answer,sizeof(answer));
+
+        if(answer > num){
+            printf("DOWN\n");
+        
+        }
+        else if(answer < num){
+            printf("UP\n");
+        }
+        else if (answer == num){
+            printf("정답입니다 !\n");
+            break;
+        }
+        else{
+            printf("알 수 없는 오류가 발생했어요. \n");
+        }
+
+        if(chance == 0){
+            printf("모든 기회를 다 사용하셨네요. 아쉽게 실패했어요 ㅠㅠ\n");
+            break;
+        }
+
+    }
+
     return 0;
+    
 }
