@@ -70,12 +70,31 @@ int main(void){
     }
     */
 
-  char kor[] ="ㅎ";
-  printf("%s\n", kor);
-  printf("%d\n", sizeof(kor));
+  //char kor[] = "나도코딩";
+  //printf("%s\n", kor);
+  //printf("%d\n", sizeof(kor));
   // 영어는 한글자 : 1 byte
   // 한글 1글자 : 2 byte
   //char 크기 : 1byte
 
+  //char c_array[7] = {'c','o','d','i','n','g','\0'};
+  //char c_array[6] = {'c','o','d','i','n','g'};
+  //printf("%s\n", c_array);
+
+  char c_array[10] = {'c','o','d','i','n','g'};
+  //printf("%s\n", c_array);
+  /*for(int i = 0; i <sizeof(c_array); i++){
+    printf("%c\n", c_array[i]);
+  }*/
+
+  // for(int i = 0; i <sizeof(c_array); i++){
+  //  printf("%d\n", c_array[i]); //ASCII 코드 값 출력 (null 문자 0으로 입력됨)
+  //}
+
+  //문자열 입력받기 : 경찰서조서 쓰기 예제
+  char name[256];
+    printf("이름이 뭐에요?");
+    scanf("%s", name, sizeof(name));
+    printf("%s\n", name);
     return 0;
 }
