@@ -2,6 +2,7 @@
 
 void swap(int a, int b);
 void swap_addr(int *a, int *b);
+void changeArray(int * ptr);
 int main(void){
 
     //포인터
@@ -119,6 +120,7 @@ int main(void){
     printf("arr[0] 의 실제 값 : %d\n", arr[0]);
     */
 
+   /*
    // swap
    int a = 10;
    int b = 20;
@@ -136,8 +138,17 @@ int main(void){
    printf("(주소값 전달)Swap 함수 전 => a : %d, b : %d\n", a, b);
    swap_addr(&a, &b);
    printf("(주소값 전달)Swap 함수 후 => a : %d, b : %d\n", a, b);
-   
+   */
 
+    //배열 일떄, arr2 -> 주소
+    int arr2[3] = {10, 20, 30};
+    //changeArray(arr2);
+    changeArray(&arr2[0]);
+    for(int i = 0; i < 3; i++){
+        printf("%d\n", arr2[i]);
+    }
+
+    //scanf 에서 &num 과 같이 & 을 사용하는 이유?
 
     return 0;
 }
@@ -159,4 +170,9 @@ void swap_addr(int *a, int *b){
     *a = *b;
     *b = temp;
     printf("(주소값 전달)Swap 함수 내 => a : %d, b : %d\n", *a, *b);
+}
+
+void changeArray(int * ptr)
+{
+    ptr[2] = 50;
 }
