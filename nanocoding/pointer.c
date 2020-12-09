@@ -1,5 +1,7 @@
 #include<stdio.h>
 
+void swap(int a, int b);
+void swap_addr(int *a, int *b);
 int main(void){
 
     //포인터
@@ -74,6 +76,7 @@ int main(void){
     */
 
    //배열 ?
+   /*
     int arr[3] = {5, 10, 15};
     int * ptr = arr;
     for(int i = 0; i<3; i++)
@@ -110,10 +113,50 @@ int main(void){
 
 
     // *&는 아무것도 없는것과 같다. & 는 주소이며, * 는 그 주소의 값이기 떄문에,
-    //*& 는 상쇄된다.
+    // *& 는 상쇄된다.
 
     printf("arr[0] 의 실제 값 : %d\n", *&*&*&*&*&*&*&*&*&*&*&arr[0]);
     printf("arr[0] 의 실제 값 : %d\n", arr[0]);
+    */
+
+   // swap
+   int a = 10;
+   int b = 20;
+    printf("a 의 주소 : %d\n", &a);
+    printf("b 의 주소 : %d\n", &b);
+
+   // a 와 b의 값을 바꾼다.
+   printf("Swap 함수 전 => a : %d, b : %d\n", a, b);
+   swap(a, b);
+   printf("Swap 함수 후 => a : %d, b : %d\n", a, b);
+
+   //값에 의한 복사 (Call by Value) -> 값만 복사한다는 의미.
+
+   //주소값을 넘기면? 메모리 공간에 있는 주소값 자체를 넘기면....철수네 처럼
+   printf("(주소값 전달)Swap 함수 전 => a : %d, b : %d\n", a, b);
+   swap_addr(&a, &b);
+   printf("(주소값 전달)Swap 함수 후 => a : %d, b : %d\n", a, b);
+   
+
 
     return 0;
+}
+
+void swap(int a, int b){
+
+    printf("(Swap 함수 내)a 의 주소 : %d\n", &a);
+    printf("(Swap 함수 내)b 의 주소 : %d\n", &b);
+
+    int temp = a;
+    a = b;
+    b = temp;
+    printf("Swap 함수 내 => a : %d, b : %d\n", a, b);
+}
+
+void swap_addr(int *a, int *b){
+
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    printf("(주소값 전달)Swap 함수 내 => a : %d, b : %d\n", *a, *b);
 }
