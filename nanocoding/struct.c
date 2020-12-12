@@ -48,7 +48,7 @@ int main(void)
     //구조체 배열처럼 초기화
     struct GameInfo gameInfo2 = {"너도게임", 2017, 100, "너도회사"};
 
-    printf("-- 또 다른 게임 출시 정보 --\n");
+    printf("\n\n-- 또 다른 게임 출시 정보 --\n");
     printf("  게임명    : %s\n", gameInfo2.name);
     printf("  발매년도  : %d\n", gameInfo2.year);
     printf("  가격      : %d\n", gameInfo2.price);
@@ -59,6 +59,25 @@ int main(void)
         {"나도게임", 2017, 50, "나도회사"},
         {"너도게임", 2017, 100, "너도회사"}
     };
+
+
+    //구조체 포인터
+    struct GameInfo * gamePtr; //미션맨
+    gamePtr = &gameInfo1;
+
+    /*
+    printf("\n\n-- 미션맨의 게임 출시 정보 --\n");
+    printf("  게임명    : %s\n", (*gamePtr).name);
+    printf("  발매년도  : %d\n", (*gamePtr).year);
+    printf("  가격      : %d\n", (*gamePtr).price);
+    printf("  제작사    : %s\n", (*gamePtr).company);
+    */
+
+    printf("\n\n-- 미션맨의 게임 출시 정보 --\n");
+    printf("  게임명    : %s\n", gamePtr->name);
+    printf("  발매년도  : %d\n", gamePtr->year);
+    printf("  가격      : %d\n", gamePtr->price);
+    printf("  제작사    : %s\n", gamePtr->company);
 
     return 0;
 }
